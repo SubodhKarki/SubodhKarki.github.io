@@ -3,12 +3,16 @@
     {{pageTitle}}
   </div>
   <div class='card-body'>
+
     <div class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
         <input type='text'
                [(ngModel)]='listFilter' />
       </div>
+
+ <button (click)="exportButtonHandler()">Export Data to Excel</button>
+ 
     </div>
     <div class='row'
          *ngIf='listFilter'>

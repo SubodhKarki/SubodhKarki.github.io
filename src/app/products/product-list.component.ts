@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { IgxExcelExporterService, IgxExcelExporterOptions } from 'igniteui-angular';
+
 import { IProduct } from './product';
 import { ProductService } from './product.service';
 
@@ -26,8 +28,13 @@ export class ProductListComponent implements OnInit {
   filteredProducts: IProduct[] = [];
   products: IProduct[] = [];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private excelExportService: IgxExcelExporterService) {
 
+  }
+
+  // excel export
+  public exportButtonHandler() {
+    this.excelExportService.exportData(this.products, new IgxExcelExporterOptions('ExportedDataFile'));
   }
 
   onRatingClicked(message: string): void {
